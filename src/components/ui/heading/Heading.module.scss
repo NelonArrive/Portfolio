@@ -1,0 +1,214 @@
+.heading {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	.title {
+		font-weight: 600;
+		font-size: 32px;
+		position: relative;
+	}
+
+	.navWrapper {
+		display: flex;
+		align-items: center;
+		gap: 20px;
+	}
+
+	.nav {
+		padding: 10px;
+		background: var(--background-nav);
+		backdrop-filter: blur(10px);
+		border: 1px solid var(--border);
+		z-index: 5;
+		border-radius: 20px;
+
+		.list {
+			display: flex;
+			gap: 30px;
+			padding: 0 20px;
+		}
+
+		.link {
+			position: relative;
+			font-weight: 500;
+			color: inherit;
+			padding-bottom: 5px;
+			transition: all 0.3s ease;
+
+			.icon {
+				display: none;
+			}
+
+			&::after {
+				content: '';
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				width: 0;
+				height: 3px;
+				background: linear-gradient(
+					to right,
+					hsl(33, 7%, 67%),
+					hsl(60, 1%, 47%)
+				);
+				border-radius: 3px;
+				transition: width 0.3s ease;
+			}
+
+			&:hover {
+				opacity: 0.8;
+
+				&::after {
+					width: 100%;
+				}
+			}
+
+			&.active {
+				color: var(--active-link);
+
+				&::after {
+					width: 100%;
+				}
+			}
+		}
+	}
+
+	.themeButton {
+		padding: 0;
+		background: var(--background);
+		backdrop-filter: blur(10px);
+		border: 1px solid var(--border);
+		border-radius: 50%;
+		width: 44px;
+		height: 44px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+		transition: all 0.3s ease;
+		position: relative;
+		overflow: hidden;
+
+		&:hover {
+			transform: scale(1.1);
+			opacity: 0.9;
+		}
+	}
+
+	.themeIconContainer {
+		position: relative;
+		width: 24px;
+		height: 24px;
+
+		svg {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			transition: all 0.3s ease;
+		}
+	}
+
+	.sunIcon {
+		color: var(--text);
+		transform: scale(1);
+		opacity: 1;
+	}
+
+	.moonIcon {
+		color: var(--text);
+		transform: scale(0.8);
+		opacity: 0;
+	}
+
+	.light {
+		.sunIcon {
+			transform: scale(0.8);
+			opacity: 0;
+		}
+
+		.moonIcon {
+			transform: scale(1);
+			opacity: 1;
+		}
+	}
+
+	.dark {
+		.sunIcon {
+			transform: scale(1);
+			opacity: 1;
+		}
+
+		.moonIcon {
+			transform: scale(0.8);
+			opacity: 0;
+		}
+	}
+
+	@media screen and (max-width: 1024px) {
+		.navWrapper {
+			gap: 10px;
+		}
+	}
+
+	@media (max-width: 768px) {
+		.nav {
+			position: fixed;
+			left: 50%;
+			transform: translateX(-50%);
+			bottom: 5;
+			padding: 8px 30px;
+			border-radius: 20px;
+			background-color: transparent;
+			backdrop-filter: blur(5px);
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+			z-index: 9999;
+			width: max-content;
+
+			.list {
+				padding: 0;
+
+				.link {
+					display: flex;
+					align-items: center;
+					justify-content: center;
+
+					&::after {
+						height: 0px;
+					}
+
+					span {
+						display: none;
+					}
+
+					&.active .icon {
+						background-color: var(--background-dark);
+					}
+
+					.icon {
+						display: block;
+						padding: 5px;
+						border-radius: 10px;
+
+						img {
+							filter: var(--filter-invert);
+						}
+					}
+				}
+			}
+		}
+	}
+
+	@media screen and (max-width: 530px) {
+		.themeButton {
+			width: 40px;
+			height: 40px;
+		}
+		.themeIconContainer {
+			width: 20px;
+			height: 20px;
+		}
+	}
+}

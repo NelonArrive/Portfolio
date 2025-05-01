@@ -1,0 +1,64 @@
+.map {
+	margin: 30px 0;
+}
+
+.title {
+	margin-bottom: 20px;
+	font-size: 24px;
+	color: var(--text);
+	text-transform: capitalize;
+}
+
+.form {
+	display: flex;
+	flex-direction: column;
+
+	.wrapper {
+		display: flex;
+		gap: 30px;
+		justify-content: space-between;
+
+		& input {
+			width: 100%;
+		}
+	}
+
+	&Input {
+		margin-bottom: 30px;
+	}
+
+	&Textarea {
+		margin-bottom: 30px;
+		min-height: 100px;
+		height: 120px;
+		max-height: 200px;
+		resize: vertical;
+	}
+
+	&Btn {
+		transition: all 0.2s ease;
+		position: relative;
+		background: var(--background-gradient);
+		color: var(--text-alt);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 10px;
+		border-radius: 14px;
+		text-transform: capitalize;
+		box-shadow: var(--shadow-3);
+		z-index: 1;
+		width: max-content;
+		padding: 16px 20px;
+		margin-left: auto;
+
+		&::before {
+			content: '';
+			position: absolute;
+			inset: 1px;
+			background: var(--background-gradient-before);
+			border-radius: inherit;
+			z-index: -1;
+		}
+	}
+}
