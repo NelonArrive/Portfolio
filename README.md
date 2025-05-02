@@ -1,36 +1,75 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Вот пример красивого и профессионального `README.md` для проекта **портфолио frontend-разработчика**. Ты можешь адаптировать его под свой стиль и стек (например, React, Next.js, Alpine.js и т.д.):
 
-## Getting Started
+---
 
-First, run the development server:
+````markdown
+# 🧑‍💻 Личное портфолио Frontend-разработчика
+
+Добро пожаловать в мой персональный сайт-портфолио, созданный с любовью к UI/UX, вниманием к деталям и современным технологиям фронтенда.
+
+## 🔍 О проекте
+
+Этот проект — не просто резюме, а полноценный интерактивный интерфейс в стиле **Windows 12**, где каждая "папка" рассказывает о моем опыте, навыках и проектах. Под капотом — чистый и оптимизированный код с сохранением пользовательского состояния и отзывчивым дизайном.
+
+> ⚡ Цель: показать свои навыки во фронтенде не только словами, но и кодом.
+
+## 🛠️ Технологии
+
+- **Next.js 15** — современный фреймворк на базе React с поддержкой SSR, маршрутизации и оптимизаций из коробки.
+- **TypeScript** — статическая типизация для повышения надёжности и удобства разработки.
+- **SCSS Modules** — локализованные стили с полной свободой кастомизации и читаемым CSS-синтаксисом.
+- **clsx** — удобная утилита для условного объединения CSS-классов.
+- **React Hook Form** — простое и производительное управление формами с валидацией.
+- **React Query** — асинхронный менеджер данных с кэшированием, предзагрузкой и синхронизацией с сервером.
+- **Axios** — гибкий HTTP-клиент для взаимодействия с REST API.
+
+## ✨ Возможности
+
+- ⚙️ Переключение темы (светлая / тёмная)
+- 🖼️ Красивый интерфейс, ориентированный на UX
+
+## 📁 Структура проекта
 
 ```bash
+.
+├── public/
+├── src/
+│   ├── components/
+│   ├── styles/
+│   ├── pages/
+│   └── utils/
+├── .gitignore
+├── package.json
+└── README.md
+```
+````
+
+## 🧪 Установка и запуск
+
+```bash
+# 1. Клонируй репозиторий
+git clone https://github.com/yourusername/portfolio.git
+cd portfolio
+
+# 2. Установи зависимости
+npm install
+
+# 3. Запусти локальный сервер
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🌐 Демо
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+> 🔗 [Смотреть онлайн](https://your-portfolio-url.com)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📬 Обратная связь
 
-## Learn More
+Если тебе понравилось или есть предложения, пиши мне:
 
-To learn more about Next.js, take a look at the following resources:
+- 📧 Email: [you@example.com](mailto:you@example.com)
+- 💼 [LinkedIn](https://linkedin.com/in/yourname)
+- 🐙 [GitHub](https://github.com/yourusername)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+> Сделано с ❤️ и JavaScript.
