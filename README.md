@@ -37,13 +37,12 @@
 ├── package.json
 └── README.md
 ```
-````
 
 ## 🧪 Установка и запуск
 
 ```bash
 # 1. Клонируй репозиторий
-git clone https://github.com/yourusername/portfolio.git
+git clone https://github.com/NelonArrive/Portfolio.git
 cd portfolio
 
 # 2. Установи зависимости
