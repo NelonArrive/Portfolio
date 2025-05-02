@@ -1,13 +1,59 @@
 'use client'
 
+import emailjs from '@emailjs/browser'
+import { useRef, useState } from 'react'
+import { useForm } from 'react-hook-form'
+
 import { Heading } from '@/components/ui'
 
 import { useTheme } from '@/hooks/useTheme'
 
 import styles from './Contacts.module.scss'
 
+type FormData = {
+	fullname: string
+	email: string
+	subject: string
+	message?: string
+}
+
 export function Contacts() {
 	const { isDarkMode } = useTheme()
+	const formRef = useRef<HTMLFormElement | null>(null)
+	const [isSent, setIsSent] = useState(false)
+
+	const {
+		register,
+		handleSubmit,
+		formState: { errors, isValid, isSubmitting },
+		reset
+	} = useForm<FormData>({
+		mode: 'onChange'
+	})
+
+	const formattedTime = new Date().toLocaleString('ru-RU', {
+		day: 'numeric',
+		month: 'long',
+		year: 'numeric',
+		hour: '2-digit',
+		minute: '2-digit'
+	})
+
+	const onSubmit = async (data: FormData) => {
+		if (!formRef.current) return
+		try {
+			await emailjs.sendForm(
+				'service_t73tcc9',
+				'template_gce1ned',
+				formRef.current,
+				'CeR_7P-DuXn_zqoxt'
+			)
+			setIsSent(true)
+			reset()
+		} catch (err) {
+			console.error('Ошибка отправки:', err)
+		}
+	}
 
 	return (
 		<>
@@ -23,20 +69,23 @@ export function Contacts() {
 				></iframe>
 			</div>
 
-			<div className=''>
+			<div>
 				<h2 className={styles.title}>Contact Form</h2>
 				<form
+					ref={formRef}
 					className={styles.form}
-					action='#'
+					onSubmit={handleSubmit(onSubmit)}
 				>
 					<div className={styles.wrapper}>
 						<input
+							{...register('fullname', { required: true })}
 							type='text'
 							name='fullname'
 							className={styles.formInput}
 							placeholder='Full name'
 						/>
 						<input
+							{...register('email', { required: true })}
 							type='email'
 							name='email'
 							className={styles.formInput}
@@ -45,6 +94,7 @@ export function Contacts() {
 					</div>
 
 					<input
+						{...register('subject', { required: true })}
 						type='text'
 						name='subject'
 						className={styles.formInput}
@@ -52,6 +102,7 @@ export function Contacts() {
 					/>
 
 					<textarea
+						{...register('message')}
 						name='message'
 						className={styles.formTextarea}
 						placeholder='Your Message'
@@ -60,9 +111,12 @@ export function Contacts() {
 					<button
 						className={styles.formBtn}
 						type='submit'
+						disabled={!isValid || isSubmitting}
 					>
-						<span>Send Message</span>
+						<span>{isSubmitting ? 'Sending...' : 'Send Message'}</span>
 					</button>
+
+					{isSent && <p className={styles.success}>Message sent! ✅</p>}
 				</form>
 			</div>
 		</>
