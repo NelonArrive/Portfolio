@@ -4,6 +4,7 @@ import { Geist_Mono } from 'next/font/google'
 import { SITE_NAME } from '@/constants/seo.constants'
 
 import './globals.css'
+import { Providers } from './providers'
 import { Sidebar, Wrapper } from '@/components'
 
 const geistMono = Geist_Mono({
@@ -13,10 +14,10 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
 	viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 1,
-  },
+		width: 'device-width',
+		initialScale: 1,
+		maximumScale: 1
+	},
 	title: {
 		default: 'Nelon Arrive',
 		template: `%s | ${SITE_NAME}`
@@ -32,10 +33,12 @@ export default function RootLayout({
 	return (
 		<html lang='en'>
 			<body className={geistMono.className}>
-				<main>
-					<Sidebar />
-					<Wrapper>{children}</Wrapper>
-				</main>
+				<Providers>
+					<main>
+						<Sidebar />
+						<Wrapper>{children}</Wrapper>
+					</main>
+				</Providers>
 			</body>
 		</html>
 	)

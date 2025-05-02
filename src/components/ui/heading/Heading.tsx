@@ -4,8 +4,9 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
-import styles from './Heading.module.scss'
 import { useTheme } from '@/hooks/useTheme'
+
+import styles from './Heading.module.scss'
 
 interface IHeading {
 	title: string

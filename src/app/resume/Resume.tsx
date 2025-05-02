@@ -1,5 +1,3 @@
-'use client'
-
 import { Heading } from '@/components/ui'
 
 import styles from './Resume.module.scss'

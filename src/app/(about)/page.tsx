@@ -1,35 +1,41 @@
+'use client'
+
+import { useQuery } from '@tanstack/react-query'
 import Image from 'next/image'
 
 import { Heading } from '@/components/ui'
 
-import { techStack } from '../../../data'
-
 import styles from './page.module.scss'
 import { SkillsItem } from '@/components'
+import { fetchStacks } from '@/services/stacks'
 
 export default function Home() {
+	const {
+		data: techStack = [],
+		isLoading,
+		isError
+	} = useQuery({
+		queryKey: ['stacks'],
+		queryFn: fetchStacks
+	})
+
 	return (
 		<>
 			<Heading title='About Me' />
+
 			<section className={styles.aboutText}>
 				<p>
 					A passionate Flutter developer with strong expertise in cross-platform
-					apps, REST APIs, UI/UX, widgets, and state management solutions.
-					Proven track record in delivering cutting-edge solutions, including
-					API integration, third-party libraries, and performance optimization.
-					Adept at debugging to ensure high-quality, responsive apps and An
-					agile collaborator committed to staying current with industry trends.
+					apps, REST APIs, UI/UX, widgets, and state management solutions...
 				</p>
 				<p>
-					If you're seeking a skilled Flutter developer to breathe life into
-					your project and exceed your expectations, I am here to collaborate
-					and create magic together. Reach out, and let's transform your vision
-					into a reality!
+					If you're seeking a skilled Flutter developer... Reach out, and let's
+					transform your vision into a reality!
 				</p>
 			</section>
 
 			<section className={styles.service}>
-				<h3 className={styles.serviceTitle}>What i'm doing</h3>
+				<h3 className={styles.serviceTitle}>What I'm doing</h3>
 				<ul className={styles.serviceList}>
 					{[...Array(4)].map((_, i) => (
 						<li
@@ -48,7 +54,7 @@ export default function Home() {
 							<div className={styles.serviceContent}>
 								<h4 className={styles.serviceItemTitle}>Mobile Apps</h4>
 								<p className={styles.serviceText}>
-									Professional development of applications for Android and ios.
+									Professional development of applications for Android and iOS.
 								</p>
 							</div>
 						</li>
@@ -58,6 +64,8 @@ export default function Home() {
 
 			<section className={styles.skills}>
 				<h3 className={styles.skillsTitle}>Skills</h3>
+				{isLoading && <p>Loading...</p>}
+				{isError && <p>Something went wrong...</p>}
 				<ul className={styles.skillsList}>
 					{techStack.map(({ title, imgUrl }) => (
 						<SkillsItem
