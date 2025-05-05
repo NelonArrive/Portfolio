@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Geist_Mono } from 'next/font/google'
 
 import { SITE_NAME } from '@/constants/seo.constants'
@@ -13,11 +13,6 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-	viewport: {
-		width: 'device-width',
-		initialScale: 1,
-		maximumScale: 1
-	},
 	title: {
 		default: 'Nelon Arrive',
 		template: `%s | ${SITE_NAME}`
