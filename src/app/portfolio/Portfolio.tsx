@@ -4,8 +4,6 @@ import type { Metadata } from 'next'
 
 import { Heading } from '@/components/ui'
 
-import { portfolioItem } from '../../../data'
-
 import styles from './Portfolio.module.scss'
 import { PortfolioItem } from './portfolio-item/PortfolioItem'
 
@@ -13,6 +11,14 @@ export const metadata: Metadata = {
 	title: 'Portfolio',
 	description: 'Portfolio'
 }
+
+const portfolioItem = [
+	{
+		title: 'App',
+		imgUrl: '',
+		category: 'Application'
+	}
+]
 
 export function Portfolio() {
 	return (
