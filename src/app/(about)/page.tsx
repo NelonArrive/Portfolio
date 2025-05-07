@@ -25,12 +25,14 @@ export default function Home() {
 
 			<section className={styles.aboutText}>
 				<p>
-					A passionate Flutter developer with strong expertise in cross-platform
-					apps, REST APIs, UI/UX, widgets, and state management solutions...
+					A passionate Frontend Developer crafting elegant web interfaces with
+					React, Next.js & TypeScript. I bring strong UI/UX skills, adaptive
+					layouts, performance tuning & state management mastery (Zustand,
+					Redux, React Query).
 				</p>
 				<p>
-					If you're seeking a skilled Flutter developer... Reach out, and let's
-					transform your vision into a reality!
+					If you're looking for someone who codes with purpose and design in
+					mind — let's bring your ideas to life!
 				</p>
 			</section>
 
