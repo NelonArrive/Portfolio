@@ -1,0 +1,45 @@
+.item {
+	width: calc(50% - 25px);
+	min-height: 250px;
+
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-start;
+	gap: 18px;
+	padding: 30px;
+
+	position: relative;
+	background: var(--background-gradient);
+	border-radius: 14px;
+	box-shadow: var(--shadow-2);
+	z-index: 1;
+
+	&::before {
+		content: '';
+		position: absolute;
+		inset: 1px;
+		background: var(--background-gradient-before);
+		border-radius: inherit;
+		z-index: -1;
+	}
+
+	.icon {
+		margin-bottom: 0;
+		margin-top: 5px;
+	}
+
+	.content {
+		text-align: left;
+
+		.title {
+			margin-bottom: 7px;
+			font-weight: 600;
+		}
+
+		.text {
+			color: var(--text-alt);
+			font-size: 15px;
+			line-height: 1.6;
+		}
+	}
+}

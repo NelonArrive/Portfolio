@@ -1,0 +1,29 @@
+.wrapper {
+	.title {
+		font-size: 24px;
+		font-weight: 700;
+	}
+
+	.list {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-wrap: wrap;
+		margin-top: 2rem;
+		gap: 13px;
+	}
+
+	& p {
+		margin-top: 16px;
+		text-align: center;
+	}
+}
+
+@media screen and (max-width: 680px) {
+	.wrapper {
+		&List {
+			gap: 8px;
+			font-size: 15px;
+		}
+	}
+}

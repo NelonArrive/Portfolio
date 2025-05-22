@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from 'next'
+import { ThemeProvider } from 'next-themes'
 import { Geist_Mono } from 'next/font/google'
 
 import { SITE_NAME } from '@/constants/seo.constants'
@@ -26,7 +27,7 @@ export default function RootLayout({
 	children: React.ReactNode
 }>) {
 	return (
-		<html lang='en'>
+		<html lang='en' suppressHydrationWarning>
 			<body className={geistMono.className}>
 				<Providers>
 					<main>

@@ -1,0 +1,18 @@
+.text {
+	margin-top: 30px;
+	margin-bottom: 40px;
+
+	& p {
+		margin-bottom: 15px;
+		line-height: 1.6;
+		color: var(--text-alt);
+		font-weight: 300;
+		font-size: 15px;
+	}
+}
+
+@media screen and (max-width: 530px) {
+	.text {
+		margin-top: 8px;
+	}
+}
