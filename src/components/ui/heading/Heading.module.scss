@@ -98,6 +98,12 @@
 		.navWrapper {
 			gap: 10px;
 		}
+
+		.nav {
+			.list {
+				padding: 0 5px;
+			}
+		}
 	}
 
 	@media (max-width: 768px) {

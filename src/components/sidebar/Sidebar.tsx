@@ -19,6 +19,7 @@ export function Sidebar() {
 					href='/'
 				>
 					<Image
+						priority
 						src='/logo.jpg'
 						alt='logo nelon arrive'
 						width={80}
@@ -64,7 +65,7 @@ export function Sidebar() {
 				className={`${styles.contacts} ${showContacts ? styles.contactsVisible : ''}`}
 			>
 				<div className={styles.contactsItem}>
-					<div className={styles.contactsItemIconBox}>
+					<div className='icon-box'>
 						<Image
 							className={styles.contactsItemImage}
 							src='/email.svg'
@@ -85,7 +86,7 @@ export function Sidebar() {
 				</div>
 
 				<div className={styles.contactsItem}>
-					<div className={styles.contactsItemIconBox}>
+					<div className='icon-box'>
 						<Image
 							className={styles.contactsItemImage}
 							src='/phone.svg'
@@ -106,7 +107,7 @@ export function Sidebar() {
 				</div>
 
 				<div className={styles.contactsItem}>
-					<div className={styles.contactsItemIconBox}>
+					<div className='icon-box'>
 						<Image
 							className={styles.contactsItemImage}
 							src='/location.svg'

@@ -21,7 +21,6 @@ const navLinks = [
 
 export function Heading({ title }: IHeading) {
 	const pathname = usePathname()
-	const { resolvedTheme } = useTheme()
 
 	return (
 		<header className={styles.heading}>
