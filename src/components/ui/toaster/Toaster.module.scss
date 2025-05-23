@@ -1,0 +1,39 @@
+.toast {
+	background-color: var(--background-light);
+	color: var(--text);
+	border-left: 4px solid red;
+	box-shadow: var(--shadow-2);
+	padding: 16px 20px;
+	border-radius: 12px;
+	font-weight: 500;
+	display: flex;
+	gap: 12px;
+	align-items: center;
+}
+
+.description {
+	color: var(--text-alt);
+	font-size: 14px;
+}
+
+.action {
+	background-color: transparent;
+	color: var(--text);
+	border: 1px solid var(--border);
+	padding: 6px 10px;
+	border-radius: 6px;
+	cursor: pointer;
+	transition: background 0.2s;
+}
+
+.action:hover {
+	background-color: var(--background-light);
+}
+
+.cancel {
+	background: transparent;
+	color: var(--text-alt);
+	font-size: 14px;
+	cursor: pointer;
+	text-decoration: underline;
+}

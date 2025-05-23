@@ -4,6 +4,7 @@ import emailjs from '@emailjs/browser'
 import { useTheme } from 'next-themes'
 import { useRef, useState } from 'react'
 import { useForm } from 'react-hook-form'
+import { toast } from 'sonner'
 
 import { Heading } from '@/components/ui'
 
@@ -39,10 +40,13 @@ export function Contacts() {
 				formRef.current,
 				'CeR_7P-DuXn_zqoxt'
 			)
-			setIsSent(true)
+			toast.success('Message sent ✅', {
+				description: 'We will respond to your inquiry as soon as possible'
+			})
 			reset()
 		} catch (err) {
 			console.error('Ошибка отправки:', err)
+			toast.error('Failed to send message ❌')
 		}
 	}
 
@@ -110,8 +114,6 @@ export function Contacts() {
 					>
 						<span>{isSubmitting ? 'Sending...' : 'Send Message'}</span>
 					</button>
-
-					{isSent && <p className={styles.success}>Message sent! ✅</p>}
 				</form>
 			</div>
 		</>

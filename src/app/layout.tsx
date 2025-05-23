@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next'
-import { ThemeProvider } from 'next-themes'
 import { Geist_Mono } from 'next/font/google'
+
+import { Toaster } from '@/components/ui/toaster/Toaster'
 
 import { SITE_NAME } from '@/constants/seo.constants'
 
@@ -27,12 +28,22 @@ export default function RootLayout({
 	children: React.ReactNode
 }>) {
 	return (
-		<html lang='en' suppressHydrationWarning>
+		<html
+			lang='en'
+			suppressHydrationWarning
+		>
 			<body className={geistMono.className}>
 				<Providers>
 					<main>
 						<Sidebar />
 						<Wrapper>{children}</Wrapper>
+
+						<Toaster
+							theme='dark'
+							position='bottom-right'
+							duration={2500}
+							richColors
+						/>
 					</main>
 				</Providers>
 			</body>
