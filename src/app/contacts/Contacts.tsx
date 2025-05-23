@@ -1,13 +1,13 @@
 'use client'
 
 import emailjs from '@emailjs/browser'
+import { useTheme } from 'next-themes'
 import { useRef, useState } from 'react'
 import { useForm } from 'react-hook-form'
 
 import { Heading } from '@/components/ui'
 
 import styles from './Contacts.module.scss'
-import { useTheme } from 'next-themes'
 
 type FormData = {
 	fullname: string
@@ -24,18 +24,10 @@ export function Contacts() {
 	const {
 		register,
 		handleSubmit,
-		formState: { errors, isValid, isSubmitting },
+		formState: { isValid, isSubmitting },
 		reset
 	} = useForm<FormData>({
 		mode: 'onChange'
-	})
-
-	const formattedTime = new Date().toLocaleString('ru-RU', {
-		day: 'numeric',
-		month: 'long',
-		year: 'numeric',
-		hour: '2-digit',
-		minute: '2-digit'
 	})
 
 	const onSubmit = async (data: FormData) => {
@@ -58,15 +50,19 @@ export function Contacts() {
 		<>
 			<Heading title='Contacts' />
 
-			<div className={styles.map}>
-				<iframe
-					src={`https://yandex.ru/map-widget/v1/?ll=60.475066%2C56.788751&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgg1MzE2NjUzNxJP0KDQvtGB0YHQuNGPLCDQodCy0LXRgNC00LvQvtCy0YHQutCw0Y8g0L7QsdC70LDRgdGC0YwsINCV0LrQsNGC0LXRgNC40L3QsdGD0YDQsyIKDdBjckIVIFpjQg%2C%2C&z=9.35${resolvedTheme ? '&theme=dark' : ''}`}
-					width='100%'
-					height='380'
-					allowFullScreen={true}
-					style={{ position: 'relative', borderRadius: '16px' }}
-				></iframe>
-			</div>
+			{resolvedTheme && (
+				<div className={styles.map}>
+					<iframe
+						src={`https://yandex.ru/map-widget/v1/?ll=60.475066%2C56.788751&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgg1MzE2NjUzNxJP0KDQvtGB0YHQuNGPLCDQodCy0LXRgNC00LvQvtCy0YHQutCw0Y8g0L7QsdC70LDRgdGC0YwsINCV0LrQsNGC0LXRgNC40L3QsdGD0YDQsyIKDdBjckIVIFpjQg%2C%2C&z=9.35${
+							resolvedTheme === 'dark' ? '&theme=dark' : ''
+						}`}
+						width='100%'
+						height='380'
+						allowFullScreen
+						style={{ position: 'relative', borderRadius: '16px' }}
+					></iframe>
+				</div>
+			)}
 
 			<div>
 				<h2 className={styles.title}>Contact Form</h2>
