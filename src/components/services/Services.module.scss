@@ -21,43 +21,5 @@
 		.list {
 			flex-direction: column;
 		}
-
-		.text {
-			font-size: 14px;
-		}
-
-		.item {
-			width: 100%;
-		}
-	}
-}
-
-@media screen and (max-width: 680px) {
-	.wrapper {
-		.item {
-			padding: 20px;
-		}
-	}
-}
-
-@media screen and (max-width: 530px) {
-	.wrapper {
-		.item {
-			align-items: center;
-			justify-content: center;
-			flex-direction: column;
-
-			.content {
-				text-align: center;
-
-				.icon {
-					margin: 0;
-					img {
-						width: 50px;
-						height: auto;
-					}
-				}
-			}
-		}
 	}
 }

@@ -1,3 +1,6 @@
+export * from './skills/Skills'
 export * from './sidebar/Sidebar'
 export * from './wrapper/Wrapper'
+export * from './services/Services'
+export * from './services/services-item/ServicesItem'
 export * from './skills/skills-item/SkillsItem'
